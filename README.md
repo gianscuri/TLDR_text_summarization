@@ -1,27 +1,5 @@
 # Extractive Text Summarization and Topic Modeling over Reddit Posts
 
-## Requirements
-
-- python 3.10.7
-- contractions==0.1.73
-- gensim==4.3.0
-- ipython==8.8.0
-- matplotlib==3.6.3
-- nltk==3.8.1
-- num2words==0.5.12
-- numpy==1.22.1
-- pandas==1.3.5
-- seaborn==0.12.2
-- simplemma==0.9.0
-- spacy==3.4.4
-- swifter==1.3.4
-- textblob==0.17.1
-- tqdm==4.64.1
-- scikit-learn==1.2.0
-- rouge-score==0.1.2
-- imbalanced-learn==0.10.1
-- wordcloud==1.8.2.2
-- pyLDAvis==3.3.1
 
 ## TLDRHQ: Data and Text Pre-processing
 
