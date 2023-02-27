@@ -24,7 +24,7 @@ project_folder
 ```
 
 ### Step 2. Perform data cleaning and splitting of the dataset
-Run the `0_cleaning.py` script which will perform data cleaning (removing duplicates), splits the dataset into training/validation and test sets (splitting the training set so that it is easier to manage) and then save it splitted into `.JSON` files in `./Dataset_splitted`. You get a directory tree like this:
+Run the `PP_cleaning.py` script which will perform data cleaning (removing duplicates), splits the dataset into training/validation and test sets (splitting the training set so that it is easier to manage) and then save it splitted into `.JSON` files in `./Dataset_splitted`. You get a directory tree like this:
 ```
 project_folder
 └───Dataset_splitted
@@ -44,7 +44,7 @@ project_folder
 
 
 ### Step 3. Perform text pre-processing on the dataset
-Run the `0_normalizing.py` script which will perform senteces splitting, text normalization, tokenization, stop-words removal, lemmatization and POS tagging on `document` variable, containing reddit posts. Then save it splitted into various `.JSON` files in `./ProcessedData`. You get a directory tree like this:
+Run the `PP_normalizing.py` script which will perform senteces splitting, text normalization, tokenization, stop-words removal, lemmatization and POS tagging on `document` variable, containing reddit posts. Then save it splitted into various `.JSON` files in `./ProcessedData`. You get a directory tree like this:
 ```
 project_folder
 └───ProcessedData
@@ -66,7 +66,7 @@ The text normalisation operations performed include, in order: Sentence Splittin
 ## Summarization task
 
 ### Step 0. Split and clean'ProcessedData' for easy management
-Run notebook 'Preprocessing for summarization.ipynb' in order to:
+Run notebook `TS_Preprocessing for summarization.ipynb` in order to:
 - remove document without summary
 - remove document with a single sentence
 - split train dataset 
@@ -94,7 +94,7 @@ project_folder
 ```
 
 ### Step 1. Create a feature matrix for each of the JSON in 'Processed Data For Summarization'
-Run featureMatrixGeneration.py obtaining feature matrices (sentences x features). You get a directory tree like this:
+Run `TS_featureMatrixGeneration.py` obtaining feature matrices (sentences x features). You get a directory tree like this:
 
 ```
 project_folder
@@ -118,7 +118,7 @@ project_folder
     └───val_2.csv
 ```
     
- Run the notebook featureMatrixGeneration2.ipynb to join train, val and test datasets. You get a directory tree like this:
+ Run the notebook `TS_featureMatrixGeneration2.ipynb` to join train, val and test datasets. You get a directory tree like this:
  
  ```
  project_folder
@@ -157,7 +157,7 @@ Features generated at this step are the following:
  
     
 ### Step 2. Perform CUR undersampling
-Run notebook featureMatrixUndersampling.ipynb in order to perform CUR undersampling on both train and validation data sets. You get a directory tree like this:
+Run notebook `TS_featureMatrixUndersampling.ipynb` in order to perform CUR undersampling on both train and validation data sets. You get a directory tree like this:
 
 ```
 project_folder
@@ -169,7 +169,7 @@ project_folder
 Majority and minority class are splitted because CUR undersampling works only on the majority class
 
 ### Step 3. Perform EditedNearestNeighbours(ENN) undersamplig
-Run notebook featureMatrixAnalysis.ipynb to perform EEN undersampling. You get a directory tree like this:
+Run notebook `TS_featureMatrixAnalysis.ipynb` to perform EEN undersampling. You get a directory tree like this:
 
 ```
 project_folder
@@ -180,7 +180,7 @@ project_folder
 ```
 
 ### Step 4. Machine Learning model selection and evaluation
-Run notebook featureMatrixAnalysis.ipynb to perform a RandomizedSearcCV over the following models
+Run notebook `TS_featureMatrixAnalysis.ipynb` to perform a RandomizedSearcCV over the following models
 - RandomForestClassifier
 - LogisticRegression
 - HistGradientBoostingClassifier
@@ -194,17 +194,17 @@ Then, evaluate the resulting best model on the test set with respect to:
 - Accuracy
 
 ### Step 5. Perform Maximal Marginal Relevance(MMR) selection
-Run notebook featureMatrixAnalysis.ipynb to perform MMR and obtain an extractive summary for each document in the test set.
+Run notebook `TS_featureMatrixAnalysis.ipynb` to perform MMR and obtain an extractive summary for each document in the test set.
 
 ### Step 6. Summary Evaluation
-Run notebook featureMatrixAnalysis.ipynb to measure summaries quality by means of 
+Run notebook `TS_featureMatrixAnalysis.ipynb` to measure summaries quality by means of 
 - Rouge1
 - Rouge2 
 - RougeL 
 
 ## Topic modeling task
 ### Step 0. Perform preprocessing
-Run the `Preprocessing for topic modeling.ipynb` script to process and extract only the useful data. The output is saved here:
+Run the `TM_Preprocessing for topic modeling.ipynb` script to process and extract only the useful data. The output is saved here:
 
 ```
 project_folder
@@ -213,7 +213,7 @@ project_folder
 ```
 
 ### Step 1. Perform topic modeling on the test set
-Run the `topic_modeling.ipynb` script which will perform LDA (with grid search of the best hyper-parameters) and LSA. The script saves 9 CSV files, 3 for LSA and 6 for LDA (UMass and CV coherence measures), containing: document-topic matrix, topic-term matrix and a table with topic insights.
+Run the `TM_topic_modeling.ipynb` script which will perform LDA (with grid search of the best hyper-parameters) and LSA. The script saves 9 CSV files, 3 for LSA and 6 for LDA (UMass and CV coherence measures), containing: document-topic matrix, topic-term matrix and a table with topic insights.
 
 ```
 project_folder
